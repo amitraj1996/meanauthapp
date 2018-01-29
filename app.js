@@ -28,7 +28,13 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 // Body Parser Middleware
 app.use(bodyParser.json());
+// passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
+require('./config/passport')(passport);
+// require('./config/passport')(passport);
+//                                |======> this is because we are passing in the value of passport
 app.use('/users', users);
 // Index Route
 app.get('/', (req, res) => {

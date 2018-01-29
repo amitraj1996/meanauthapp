@@ -14,6 +14,7 @@ the bodyParser using ```app.use(bodyParser.json());
 and the main home page route as ```app.get('/', (req, res) => {
   res.send('Invalid Endpoint');
 });```
+
 We also use the listen function from the app and log the message on success.
 
 5)Then, we make a directory called routes and file named ```users.js``` in it.

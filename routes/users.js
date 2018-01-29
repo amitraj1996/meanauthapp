@@ -42,7 +42,7 @@ router.post('/authenticate', (req, res, next) => {
 
         res.json({   //response to the frontend
           success:true,
-          token: 'Bearer '+token,
+          token: 'JWT '+token,
           user:{
             id:user._id,
             name: user.name,

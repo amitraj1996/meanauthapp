@@ -37,8 +37,8 @@ router.post('/authenticate', (req, res, next) => {
     User.comparePassword(password , user.password, (err, isMatch)=>{
       if (err) throw err;
       if (isMatch){
-        const token = jwt.sign(user.toJSON(), config.secret, { expiresIn: 604800 // 1 week });﻿
-        });
+        const token = jwt.sign(user, config.secret, { expiresIn: 604800 // 1 week 
+          });
 
         res.json({   //response to the frontend
           success:true,
@@ -61,7 +61,7 @@ router.post('/authenticate', (req, res, next) => {
 // Profile
 //we need to protect our profile rooute so that it cannot be accessed directly
 router.get('/profile', passport.authenticate('jwt', {session:false}),(req, res, next) => {
-  res.json({user: request.user});
+  res.json({user: req.user}); // Check the function argument you have passed req (not request)
 });
 
 module.exports = router;

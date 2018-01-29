@@ -21,7 +21,7 @@ const app = express();
 
 const users = require('./routes/users');
 // Port Number
-const port = 3000;
+const port = 5000;
 // CORS Middleware
 app.use(cors());
 // Set Static Folder
